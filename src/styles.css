@@ -1,0 +1,39 @@
+body {
+    background-color: bisque;
+}
+.header-image {
+    width: 60%;
+
+}
+
+ul {
+    margin-bottom: 1000px;
+}
+
+.flag-img {
+    width: 30px;
+}
+
+.blauw{
+    color: blue;
+}
+
+.groen{
+    color: green;
+}
+
+.rood{
+    color: red;
+}
+
+.geel{
+    color: goldenrod;
+}
+
+.paars{
+    color: purple;
+}
+
+.overige{
+    color: tomato;
+}

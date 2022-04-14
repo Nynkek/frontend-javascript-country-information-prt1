@@ -517,7 +517,46 @@ function hmrAcceptRun(bundle, id) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
-console.log('Hallo daar!');
+let countryName = document.getElementById('country-name');
+async function fetchCountry() {
+    try {
+        // het request maken
+        const response = await _axiosDefault.default.get("https://restcountries.com/v2/all");
+        let resultLiArray = response.data.map((country)=>{
+            let countryClassColor = colorCountry(country);
+            return `
+            <li>
+                <img src="${country.flags.png}" class="flag-img">
+                <span class="${countryClassColor}">${country.name} </span>
+                <br>
+                Has a population of ${country.population.toLocaleString()} people.
+            </li>`;
+        });
+        const resultaatHTML = resultLiArray.join('');
+        console.log(resultaatHTML);
+        function colorCountry(country) {
+            switch(country.region){
+                case 'Africa':
+                    return "blauw";
+                case 'America':
+                    return "groen";
+                case 'Asia':
+                    return "rood";
+                case 'Europe':
+                    return "geel";
+                case 'Oceania':
+                    return "paars";
+                default:
+                    return "overige";
+            }
+        }
+        countryName.innerHTML = resultaatHTML;
+    } catch (e) {
+        // de errors
+        console.error(e);
+    }
+}
+fetchCountry();
 
 },{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jo6P5":[function(require,module,exports) {
 module.exports = require('./lib/axios');
