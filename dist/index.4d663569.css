@@ -6,6 +6,10 @@ body {
   width: 60%;
 }
 
+.countrys {
+  column-count: 3;
+}
+
 ul {
   margin-bottom: 1000px;
 }

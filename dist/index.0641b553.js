@@ -518,15 +518,37 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 let countryName = document.getElementById('country-name');
+function colorCountry(country) {
+    switch(country.region){
+        case 'Africa':
+            return "blauw";
+        case 'America':
+            return "groen";
+        case 'Asia':
+            return "rood";
+        case 'Europe':
+            return "geel";
+        case 'Oceania':
+            return "paars";
+        default:
+            return "overige";
+    }
+}
 async function fetchCountry() {
     try {
         // het request maken
         const response = await _axiosDefault.default.get("https://restcountries.com/v2/all");
+        function sortHighToLow(array) {
+            array.sort((a, b)=>a.population - b.population
+            );
+            return array;
+        }
+        sortHighToLow(response.data);
         let resultLiArray = response.data.map((country)=>{
             let countryClassColor = colorCountry(country);
             return `
             <li>
-                <img src="${country.flags.png}" class="flag-img">
+                <img src="${country.flags.png}" class="flag-img" alt="vlag van ${country.name}">
                 <span class="${countryClassColor}">${country.name} </span>
                 <br>
                 Has a population of ${country.population.toLocaleString()} people.
@@ -534,22 +556,6 @@ async function fetchCountry() {
         });
         const resultaatHTML = resultLiArray.join('');
         console.log(resultaatHTML);
-        function colorCountry(country) {
-            switch(country.region){
-                case 'Africa':
-                    return "blauw";
-                case 'America':
-                    return "groen";
-                case 'Asia':
-                    return "rood";
-                case 'Europe':
-                    return "geel";
-                case 'Oceania':
-                    return "paars";
-                default:
-                    return "overige";
-            }
-        }
         countryName.innerHTML = resultaatHTML;
     } catch (e) {
         // de errors

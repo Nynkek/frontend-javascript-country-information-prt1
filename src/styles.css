@@ -6,6 +6,10 @@ body {
 
 }
 
+.countrys {
+    column-count: 3;
+}
+
 ul {
     margin-bottom: 1000px;
 }
@@ -13,6 +17,7 @@ ul {
 .flag-img {
     width: 30px;
 }
+
 
 .blauw{
     color: blue;
