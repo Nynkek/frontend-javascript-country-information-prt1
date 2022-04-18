@@ -40,9 +40,9 @@ async function fetchCountry() {
             return `
             <li>
                 <img src="${country.flags.png}" class="flag-img" alt="vlag van ${country.name}">
-                <span class="${countryClassColor}">${country.name} </span>
-                <br>
-                Has a population of ${country.population.toLocaleString()} people.
+                <span class="${countryClassColor} country-name">${country.name} </span>
+                
+                <p>Has a population of ${country.population.toLocaleString('de-DE')} people.</p>
             </li>`
         })
         const resultaatHTML = resultLiArray.join('');

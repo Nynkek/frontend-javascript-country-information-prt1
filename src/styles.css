@@ -1,44 +1,98 @@
 body {
     background-color: bisque;
+    text-align: center;
+    font-family: "American Typewriter";
 }
-.header-image {
-    width: 60%;
 
+.header-image {
+    width: 90%;
+    border: 3px solid goldenrod;
+
+}
+
+h1 {
+    font-size: 6em;
+    text-decoration-thickness: 14px;
+    text-decoration-color: black;
+    text-decoration-line: underline;
 }
 
 .countrys {
     column-count: 3;
+    text-align: left;
+    background-color: papayawhip;
+    border: 3px solid goldenrod;
+    padding: 1.3em;
+    margin: 2em;
+
 }
 
-ul {
-    margin-bottom: 1000px;
+li {
+    margin-bottom: 1em;
+    font-size: 0.8em;
+    list-style: none;
 }
 
 .flag-img {
     width: 30px;
+    margin-right: 1em;
 }
 
-
-.blauw{
-    color: blue;
+.country-name {
+    font-weight: bold;
+    font-size: 2em;
 }
 
-.groen{
+.blauw {
+    color: royalblue;
+}
+
+.groen {
     color: green;
 }
 
-.rood{
-    color: red;
+.rood {
+    color: firebrick;
 }
 
-.geel{
+.geel {
     color: goldenrod;
 }
 
-.paars{
-    color: purple;
+.paars {
+    color: rebeccapurple;
 }
 
-.overige{
-    color: tomato;
+.overige {
+    color: black;
+}
+
+@media only screen and (max-width: 900px) {
+
+    .countrys {
+        column-count: 2;
+    }
+
+    h1 {
+        font-size: 5em;
+    }
+
+    .country-name {
+        font-size: 1.8em;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .countrys {
+        column-count: 1;
+    }
+
+    h1 {
+        font-size: 4em;
+    }
+
+    .country-name {
+        font-size: 1.5em;
+    }
 }
